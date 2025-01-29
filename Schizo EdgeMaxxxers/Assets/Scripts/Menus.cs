@@ -16,4 +16,18 @@ public class Menus : MonoBehaviour
     {
         SceneManager.LoadScene(levelOne);
     }
+
+    public int levelTwo;
+
+    public void OnSettingsButtonPressed()
+    {
+        SceneManager.LoadScene(levelTwo);
+    }
+
+    public int levelZero;
+
+    public void OnBackButtonPressed()
+    {
+        SceneManager.LoadScene(levelZero);
+    }
 }
