@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public int Damage;
+
+    public int health;
+
     public Transform player;
+
     private NavMeshAgent navMeshAgent;
 
     void Start()
@@ -13,12 +18,24 @@ public class EnemyMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    public void TakeDamage()
+    {
+        health -= Damage;
+        if(health <= 0) Invoke(nameof(DestroyEnemy), 5f);
+    }
+
+    void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
     void Update()
     {
-            if (player != null)
-       {    
-           navMeshAgent.SetDestination(player.position);
-       }
+        if (player != null)
+        {
+            navMeshAgent.SetDestination(player.position);
+        }
     }
+
+
 }
