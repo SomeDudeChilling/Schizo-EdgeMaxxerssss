@@ -41,7 +41,7 @@ public class Ammo : MonoBehaviour
     {
         if(other.gameObject.CompareTag("AmmoBox"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             AddAmmo();
         }
     }
